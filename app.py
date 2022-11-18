@@ -1,5 +1,6 @@
 from pynytimes import NYTAPI
 import pandas as pd
+import openpyxl
 
 import os
 from dotenv import load_dotenv
