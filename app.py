@@ -76,7 +76,7 @@ df_sheet3 = df[["index","Main Headline"]]
 
 list_sheet3 = []
 for i in range(len(df_sheet3)):
-    words_list = df_sheet3["Main Headline"].loc[i].split()
+    words_list = clean_words(df_sheet3["Main Headline"].loc[i]).split()
         
     for x in range(len(words_list)):
         index_word = [i, words_list[x]]
