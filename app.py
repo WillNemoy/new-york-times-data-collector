@@ -7,6 +7,12 @@ from dotenv import load_dotenv
 import json
 import datetime
 
+###Tasks for 11/18/2022
+#1 Filter out non-alphanumeric (and add user inputs)
+#2 Create example Tableau on paper and send everything to Noah!
+#3 Refactor Innovo Web Tools code
+#4 Implement the NYT Data Collector
+#5 Work on the downloading bug
 
 load_dotenv() # look in the ".env" file for env vars
 
