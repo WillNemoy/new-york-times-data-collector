@@ -42,7 +42,7 @@ SENDGRID_API_KEY="__________"
 Run the unemployment report:
 
 ```sh
-python -m app
+python app.py
 ```
 
 
