@@ -14,6 +14,13 @@ import datetime
 #4 Implement the NYT Data Collector
 #5 Work on the downloading bug
 
+def clean_words(words):
+    new_words = ""
+    for character in words:
+        if character.isalnum() or character == " " or character == "#" or character == "'" or character == "-":
+            new_words += character.lower()
+    return new_words
+
 load_dotenv() # look in the ".env" file for env vars
 
 API_KEY = os.getenv("NY_API_KEY")
@@ -55,7 +62,7 @@ df_sheet2 = df[["index","abstract"]]
 
 list_sheet2 = []
 for i in range(len(df_sheet2)):
-    words_list = df_sheet2["abstract"].loc[i].split()
+    words_list = clean_words(df_sheet2["abstract"].loc[i]).split()
         
     for x in range(len(words_list)):
         index_word = [i, words_list[x]]
@@ -94,7 +101,7 @@ df_sheet4 = df_sheet4.rename(columns={0:"Article Id", 1:"Main Headline Words"})
 #to Excel!
 df = df.rename(columns={"index":"Id"})
 
-with pd.ExcelWriter('output.xlsx') as writer:  
+with pd.ExcelWriter('output test.xlsx') as writer:  
     df.to_excel(writer, sheet_name='Data')
     df_sheet2.to_excel(writer, sheet_name='Abstract Words')
     df_sheet3.to_excel(writer, sheet_name='Headline Words')
